@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="topnav">
+  <a class="nav-link" href="{% url 'autores' %}">Autores</a>
+  <a class="nav-link" href="{% url 'index' %}">Libros</a>
+    <a class="nav-link" href="{% url 'buscar' %}">Buscar</a>
+</div>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

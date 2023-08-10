@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Eliminar Libro</h1>
+    <p>Seguro que deseas eliminar el libro "{{ libro.titulo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'index' %}">
+        <button>Cancelar</button>
+    </a>
+</body>
+   <style >
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #333;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        form, a {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+        button.cancel {
+            background-color: #333;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        button.cancel:hover {
+            background-color: #555;
+        }
+    </style>
+</html>

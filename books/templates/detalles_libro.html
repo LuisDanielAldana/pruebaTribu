@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles Libro</title>
+</head>
+{% extends './index.html' %}
+{% block content %}
+<body>
+    <div class="container">
+        <h1>Detalles</h1>
+        <p><strong>Titulo:</strong> {{ libro.titulo }}</p>
+        <p><strong>Descripcion:</strong> {{ libro.descripcion }}</p>
+        <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
+        <p><strong>Paginas:</strong> {{ libro.paginas }}</p>
+        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+    </div>
+</body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+{% endblock content %}
+</html>

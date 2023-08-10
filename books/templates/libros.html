@@ -1,0 +1,176 @@
+{% extends './index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos los Libros</title>
+</head>
+
+<body>
+    <h1>Todos los libros</h1>
+    <ul>
+        {% for libro in paginas %}
+            <li class="card">
+                <div>
+                    <a href="{% url 'books' libro.id %}">{{ libro.titulo }}</a>
+                </div>
+                <div class="button-container">
+                    <a href="{% url 'editar_libro' libro.id %}">
+                        <button>Editar</button>
+                    </a>
+                    <a href="{% url 'eliminar_libro' libro.id %}">
+                        <button>Eliminar</button>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if paginas.has_previous %}
+                <a href="?page=1">&laquo; Inicio</a>
+                <a href="?page={{ paginas.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Pagina {{ paginas.number }} de {{ paginas.paginator.num_pages }}.
+            </span>
+
+            {% if paginas.has_next %}
+                <a href="?page={{ paginas.next_page_number }}">siguiente</a>
+                <a href="?page={{ paginas.paginator.num_pages }}">Fin &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <a href="{% url 'crear_libro' %}">
+        <button>Crear</button>
+    </a>
+</body>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+    h1 {
+            color: #333;
+        }
+
+    ul {
+            list-style: none;
+            padding: 0;
+        }
+    li {
+        {#margin: 10px 0;#}
+        {#padding: 10px;#}
+        {#background-color: #fff;#}
+        {#border: 1px solid #ccc;#}
+        {#border-radius: 4px;#}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        {#width: 400px; /* Set your desired width */#}
+        {#max-width: 100%; /* Ensure the box doesn't exceed the viewport width */#}
+    }
+    .card {
+            /* Styles for the card containing data */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            flex-grow: 1; /* Allow the card to expand */
+        }
+
+    .button-container {
+            /* Styles for the button container */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+   }
+
+    a {
+        text-decoration: none;
+        color: #333;
+        margin-right: 10px; /* Add margin between links */
+    }
+
+    button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px; /* Add margin between buttons */
+    }
+
+    button:hover {
+            background-color: #555;
+        }
+
+    form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+    button[type="submit"] {
+            padding: 8px 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    button[type="submit"]:hover {
+            background-color: #555;
+        }
+    .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination .current {
+    font-weight: bold;
+    margin: 0 3px;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+.pagination .step-links {
+    display: flex;
+    align-items: center;
+}
+    </style>
+</html>
+
+{% endblock content %}
