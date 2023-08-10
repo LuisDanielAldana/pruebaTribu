@@ -6,7 +6,7 @@ Para agregar y editar tanto libros como autores se crearon vistas con formas que
 Se empleo diseño de aplicacion sensillo para concentrarse en el desarrollo de funcionalidades.
 A un lado de cada registro se agregaron botones que permiten editar y eliminar los registros los cuales redirijen al usuario a una ventana nueva.
 
-##Configuracion de aplicacion
+## Configuracion de aplicacion
 Una vez descargado el repositorio es necesario abrir en una terminal la ubicacion del mismo.
 Una vez ahi, correr el comando "pip install -r requirements.txt" para instalar las dependencias necesarias.
 para correr el proyecto, usar el comando "python manage.py runserver 8000"
